@@ -21,9 +21,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
+      body:
+          //To make page scrollable
+          SingleChildScrollView(
         child: Column(
           children: [
+            //To make the wavy shape I used custom_clippers package
             ClipPath(
               clipper: SinCosineWaveClipper(
                   horizontalPosition: HorizontalPosition.RIGHT,
@@ -49,6 +52,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 key: formKey,
                 child: Column(
                   children: [
+                    //Creating the five-required textFields
                     TextFormField(
                       textInputAction: TextInputAction.next,
                       keyboardType: TextInputType.name,
@@ -196,15 +200,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       },
                     ),
                     const SizedBox(height: 20),
+                    //Creating the two-required buttons
                     MaterialButton(
                       shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(8))),
                       minWidth: double.infinity,
                       height: MediaQuery.of(context).size.height * 0.07,
                       onPressed: () {
+                        //To check the validation of textFields
                         if (formKey.currentState!.validate()) {
                           formKey.currentState!.save();
-                          print("Done");
                         }
                       },
                       color: Colors.purple,
